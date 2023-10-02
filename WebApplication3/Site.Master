@@ -1,0 +1,138 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication3.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Style/StyleSheet1.css" rel="stylesheet" type="text/css" />
+    <link href="lib/font-awesome/css/all.css" rel="stylesheet" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-dark">
+                <div class="container container-nav">
+                    <a class="navbar-brand" runat="server" href="~/"><span class="navbar-brand-name">oto</span>chat</a>
+                    <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end">
+                        <ul class="navbar-nav navbar-right">
+                            <li><a runat="server" class="nav-link introduce" href="~/Account/Register">Giới thiệu</a></li>
+                            <li>
+                                <a runat="server" class="nav-link service" href="~/Account/Login">Dịch vụ 
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                    <div class="box-service-list">
+                                        <ul class="service-list">
+                                            <li><i class="fa-solid fa-wrench"></i> bảo dưỡng</li>
+                                            <li><i class="fa-regular fa-file-lines"></i> bảo hành</li>
+                                            <li><i class="fa-solid fa-car-burst"></i> cứu hộ</li>
+                                            <li><i class="fa-solid fa-car-on"></i> làm đẹp</li>
+                                        </ul>
+                                    </div>
+                                </a>
+
+                            </li>
+                            <li><a runat="server" class="nav-link" href="~/Account/Login">Ưu đãi</a></li>
+                            <li><a runat="server" class="nav-link product" href="~/Account/Login">Sản Phẩm</a></li>
+                            <li><a runat="server" class="nav-link constact" href="~/Account/Login">Liên hệ <i class="fa-solid fa-phone-volume"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section>
+            <header class="section-header">
+                <div class="section-header-background">
+                    <div class="section-header-background-content">
+
+                    </div>
+                </div>
+            </header>
+            <section class="section-main">
+                <div class="section-main-nav">
+                    <div class="view-company">
+                        <div class="element company"><i class="fa-solid fa-database"></i> Xem Theo hãng</div>
+                        <asp:DropDownList CssClass="dropdown" ID="DropDownList1" runat="server">
+                            <asp:ListItem>Mặc định</asp:ListItem>
+                            <asp:ListItem>Toyota</asp:ListItem>
+                            <asp:ListItem>Ford</asp:ListItem>
+                            <asp:ListItem>Honda</asp:ListItem>
+                            <asp:ListItem>Huyndai</asp:ListItem>
+                            <asp:ListItem>Isuzu</asp:ListItem>
+                            <asp:ListItem>Suzuki</asp:ListItem>
+                            <asp:ListItem>Kia</asp:ListItem>
+                            <asp:ListItem>Mazda</asp:ListItem>
+                            <asp:ListItem>Bmw</asp:ListItem>
+                            <asp:ListItem>Lamboghini</asp:ListItem>
+                            <asp:ListItem>Audi</asp:ListItem>
+                            <asp:ListItem>Porsche</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="view-search">
+                        <div class="element search"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</div>
+                        <div class="box-search">
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <button id="Button1"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+                    <div class="view-sort">
+                        <div class="element sort"><i class="fa-solid fa-sort"></i> Sắp xếp theo</div>
+                        <asp:DropDownList CssClass="dropdown" ID="DropDownList2" runat="server">
+                            <asp:ListItem>Mặc định</asp:ListItem>
+                            <asp:ListItem>Tên</asp:ListItem>
+                            <asp:ListItem>Giá</asp:ListItem>
+                            <asp:ListItem>Năm Sản xuất</asp:ListItem>
+                            <asp:ListItem>Chỗ ngồi</asp:ListItem>
+                            <asp:ListItem>Tốc độ</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="view-filter">
+                        <div class="element sort"><i class="fa-solid fa-filter"></i> Lọc theo</div>
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                            <asp:ListItem>Bán chạy nhất</asp:ListItem>
+                            <asp:ListItem>Ghé thăm nhiều </asp:ListItem>
+                        </asp:CheckBoxList>
+                    </div>
+                </div>
+                <div class="show-list-product">
+
+                </div>
+            </section>
+        </section>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+</asp:PlaceHolder></body>
+</html>
