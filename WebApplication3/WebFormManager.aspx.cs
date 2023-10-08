@@ -14,14 +14,16 @@ namespace WebApplication3
 {
     public partial class WebFormManager : System.Web.UI.Page
     {
-        private string connString = WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
+        //string connString = @"Data Source=SONDINH\SQLEXPRESS;Initial Catalog=QLOTo;Integrated Security=True";
+        private string connString = @"Data Source=MSIHOANG;Initial Catalog=CarStore;Integrated Security=True";
+        //private SqlConnection myConn;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 BindGridView();
             }
+
         }
 
         protected void btnThem_Click(object sender, EventArgs e)
@@ -32,32 +34,43 @@ namespace WebApplication3
             string mauSac = txtMauSac.Text;
             string kieuXe = txtKieuXe.Text;
             string giaThanh = txtGia.Text;
-            string soGhe = ddlSoGhe.Text;
-            string luongTieuThu = txtNhienLieuTieuThu.Text;   
+            string soGhe = txtSoGhe.Text;
+            string mucTieuThu = txtMucTieuThu.Text;
             string namSanXuat = txtNamSX.Text;
-            string loaiNhienLieu = ddlNhienLieu.Text;
+            string loaiNhienLieu = txtLoaiNhienLieu.Text;
 
+            //var file = Request.Files["inpFileAnh"];
+            /*
+            HttpPostedFile file = Request.Files["inpFileAnh"];
+            byte[] fileData = null;
+            if (file != null && file.ContentLength > 0)
+            {
+                using (BinaryReader reader = new BinaryReader(file.InputStream))
+                {
+                    fileData = reader.ReadBytes(file.ContentLength);
+                }
+            }
+            */
 
 
             //Them du lieu vao CSDL
             using (SqlConnection connection = new SqlConnection(connString))
             {
                 connection.Open();
-                string insertQuery = "INSERT INTO car (id, name, company, color, carclass, price, seat, fuel, year, description) VALUES (@id, @name, @company, @color, @carclass, @price, @seat, @fuel, @year, @description)";
+                string insertQuery = "INSERT INTO car (id, name, company, color, carclass, price, seat, fuel, year, description) " +
+                    "VALUES (@maSo, @tenXe, @thuongHieu, N@mauSac, @kieuXe, @giaThanh, @soGhe, @mucTieuThu, @namSanXuat, @loaiNhienLieu)";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, connection))
                 {
-                    cmd.Parameters.AddWithValue("@id", maSo);
-                    cmd.Parameters.AddWithValue("@name", tenXe);
-                    cmd.Parameters.AddWithValue("@company", thuongHieu);
-                    cmd.Parameters.AddWithValue("@color", mauSac);
-                    cmd.Parameters.AddWithValue("@carclass", kieuXe);
-                    cmd.Parameters.AddWithValue("@price", giaThanh);
-                    cmd.Parameters.AddWithValue("@seat", soGhe);
-                    cmd.Parameters.AddWithValue("@fuel", luongTieuThu);
-                    cmd.Parameters.AddWithValue("@description", loaiNhienLieu);
-                    cmd.Parameters.AddWithValue("@year", namSanXuat);
-
-
+                    cmd.Parameters.AddWithValue("@maSo", maSo);
+                    cmd.Parameters.AddWithValue("@tenXe", tenXe);
+                    cmd.Parameters.AddWithValue("@thuongHieu", thuongHieu);
+                    cmd.Parameters.AddWithValue("@mauSac", mauSac);
+                    cmd.Parameters.AddWithValue("@kieuXe", kieuXe);
+                    cmd.Parameters.AddWithValue("@giaThanh", giaThanh);
+                    cmd.Parameters.AddWithValue("@soGhe", soGhe);
+                    cmd.Parameters.AddWithValue("@mucTieuThu", mucTieuThu);
+                    cmd.Parameters.AddWithValue("@namSanXuat", namSanXuat);
+                    cmd.Parameters.AddWithValue("@loaiNhienLieu", loaiNhienLieu);
 
                     //cmd.Parameters.AddWithValue("@hinhAnh", fileData);
 
@@ -77,11 +90,15 @@ namespace WebApplication3
             string mauSac = txtMauSac.Text;
             string kieuXe = txtKieuXe.Text;
             decimal giaThanh = decimal.Parse(txtGia.Text);
+            int soGhe = int.Parse(txtSoGhe.Text);
+            string mucTieuThu = txtMucTieuThu.Text;
+            int namSanXuat = int.Parse(txtNamSX.Text);
+            string loaiNhienLieu = txtLoaiNhienLieu.Text;
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
                 connection.Open();
-                string updateQuery = "Update tblOToSub SET Ten = @tenXe, ThuongHieu = @thuongHieu, MauSac = @mauSac, KieuXe = @kieuXe, GiaThanh = @giaThanh WHERE MaSo = @MaSo";
+                string updateQuery = "Update car SET name = @tenXe, company = @thuongHieu, color = @mauSac, carclass = @kieuXe, price = @giaThanh, seat = @soGhe, fuel = @mucTieuThu, year = @namSanXuat,  description = @loaiNhienLieu WHERE id = @maSo";
                 using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
                 {
                     cmd.Parameters.AddWithValue("@maSo", maSo);
@@ -90,6 +107,12 @@ namespace WebApplication3
                     cmd.Parameters.AddWithValue("@mauSac", mauSac);
                     cmd.Parameters.AddWithValue("@kieuXe", kieuXe);
                     cmd.Parameters.AddWithValue("@giaThanh", giaThanh);
+                    cmd.Parameters.AddWithValue("@soGhe", soGhe);
+                    cmd.Parameters.AddWithValue("@mucTieuThu", mucTieuThu);
+                    cmd.Parameters.AddWithValue("@namSanXuat", namSanXuat);
+                    cmd.Parameters.AddWithValue("@loaiNhienLieu", loaiNhienLieu);
+
+
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -102,15 +125,10 @@ namespace WebApplication3
             using (SqlConnection connection = new SqlConnection(connString))
             {
                 connection.Open();
-                string updateQuery = "DELETE FROM car WHERE id = @MaSo";
-                using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
+                string deleteQuery = "DELETE FROM car WHERE id = @maSo";
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, connection))
                 {
                     cmd.Parameters.AddWithValue("@maSo", maSo);
-                    //cmd.Parameters.AddWithValue("@tenXe", tenXe);
-                    //cmd.Parameters.AddWithValue("@thuongHieu", thuongHieu);
-                    //cmd.Parameters.AddWithValue("@mauSac", mauSac);
-                    //cmd.Parameters.AddWithValue("@kieuXe", kieuXe);
-                    //cmd.Parameters.AddWithValue("@giaThanh", giaThanh);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -134,11 +152,10 @@ namespace WebApplication3
                 string mauSac = selectedRow.Cells[4].Text;
                 string kieuXe = selectedRow.Cells[5].Text;
                 string giaThanh = selectedRow.Cells[6].Text;
-                string soGhe = selectedRow.Cells[8].Text;
-                string luongTieuThu = selectedRow.Cells[8].Text;
+                string soGhe = selectedRow.Cells[7].Text;
+                string mucTieuThu = selectedRow.Cells[8].Text;
                 string namSanXuat = selectedRow.Cells[9].Text;
-                string loaiNhienLieu = selectedRow.Cells[7].Text;
-
+                string loaiNhienLieu = selectedRow.Cells[10].Text;
 
                 //Hen thi thong tin vao cac textBox
                 txtMaSo.Text = maSo;
@@ -147,10 +164,10 @@ namespace WebApplication3
                 txtMauSac.Text = mauSac;
                 txtKieuXe.Text = kieuXe;
                 txtGia.Text = giaThanh;
-                ddlSoGhe.Text = soGhe;
-                txtNhienLieuTieuThu.Text = luongTieuThu;
+                txtSoGhe.Text = soGhe;
+                txtMucTieuThu.Text = mucTieuThu;
                 txtNamSX.Text = namSanXuat;
-                ddlNhienLieu.Text = loaiNhienLieu;
+                txtLoaiNhienLieu.Text = loaiNhienLieu;
             }
         }
 
@@ -168,22 +185,6 @@ namespace WebApplication3
                     grvDanhSachXe.DataSource = dataTable;
                     grvDanhSachXe.DataBind();
                 }
-            }
-        }
-
-        protected void BtnTaiAnh_Click(object sender, EventArgs e)
-        {
-            var file = Request.Files["inpFileAnh"];
-
-            if (file != null && file.ContentLength > 0)
-            {
-                byte[] fileData;
-                using (var binaryReader = new BinaryReader(file.InputStream))
-                {
-                    fileData = binaryReader.ReadBytes(file.ContentLength);
-                }
-
-                // Lưu mảng byte `fileData` vào cơ sở dữ liệu
             }
         }
     }

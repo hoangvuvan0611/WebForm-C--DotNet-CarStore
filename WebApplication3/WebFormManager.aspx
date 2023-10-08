@@ -8,45 +8,39 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
+        <div>
             <table class="auto-style5">
                 <tr>
-                    <td class="auto-style18">
-                        &nbsp;</td>
                     <td class="auto-style10">
                         &nbsp;</td>
-                    <td class="auto-style10" colspan="4">
+                    <td class="auto-style10" colspan="2">
                         &nbsp;</td>
-                    <td class="auto-style14">
+                    <td class="auto-style31">
+                        &nbsp;</td>
+                    <td class="auto-style30" rowspan="18">
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style17">
-                        &nbsp;</td>
                     <td class="auto-style16">
                         &nbsp;</td>
-                    <td class="auto-style16" colspan="5">
+                    <td class="auto-style16" colspan="3">
                         <asp:Label ID="Label1" runat="server" Text="QUẢN LÝ SẢN PHẨM" Font-Bold="True" Font-Overline="False" Font-Size="X-Large"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style17">
-                        &nbsp;</td>
                     <td class="auto-style16">
                         &nbsp;</td>
-                    <td class="auto-style16" colspan="5">
+                    <td class="auto-style16" colspan="3">
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style18">
-                        &nbsp;</td>
                     <td class="auto-style10">
                         <asp:Label ID="Label3" runat="server" Text="Mã số xe"></asp:Label>
                     </td>
-                    <td class="auto-style10" colspan="4">
+                    <td class="auto-style10" colspan="2">
                         <asp:TextBox ID="txtMaSo" runat="server"></asp:TextBox>
                     </td>
-                    <td class="auto-style13" rowspan="16">
+                    <td class="auto-style13" rowspan="15">
                         <asp:GridView ID="grvDanhSachXe" runat="server" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grvDanhSachXe_SelectedIndexChanged" AllowPaging="True" Width="720px">
                             <AlternatingRowStyle BackColor="White" />
                             <EditRowStyle BackColor="#2461BF" />
@@ -63,163 +57,110 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style18">
-                        &nbsp;</td>
                     <td class="auto-style10">
                         <asp:Label ID="Label4" runat="server" Text="Tên xe"></asp:Label>
                     </td>
-                    <td class="auto-style10" colspan="4">
+                    <td class="auto-style10" colspan="2">
                         <asp:TextBox ID="txtTen" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style18">
-                        &nbsp;</td>
                     <td class="auto-style10">
                         <asp:Label ID="Label5" runat="server" Text="Thương hiệu"></asp:Label>
                     </td>
-                    <td class="auto-style10" colspan="4">
+                    <td class="auto-style10" colspan="2">
                         <asp:TextBox ID="txtThuongHieu" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style18">
-                        &nbsp;</td>
                     <td class="auto-style10">
                         <asp:Label ID="Label9" runat="server" Text="Màu sắc"></asp:Label>
                     </td>
-                    <td class="auto-style10" colspan="4">
+                    <td class="auto-style10" colspan="2">
                         <asp:TextBox ID="txtMauSac" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style18">
-                        &nbsp;</td>
                     <td class="auto-style10">
                         <asp:Label ID="Label8" runat="server" Text="Kiểu xe"></asp:Label>
                     </td>
-                    <td class="auto-style10" colspan="4">
+                    <td class="auto-style10" colspan="2">
                         <asp:TextBox ID="txtKieuXe" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
                     <td class="auto-style11">
                         <asp:Label ID="Label7" runat="server" Text="Giá thành"></asp:Label>
                     </td>
-                    <td class="auto-style11" colspan="4">
+                    <td class="auto-style11" colspan="2">
                         <asp:TextBox ID="txtGia" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
                     <td class="auto-style11">
-                        Hình ảnh</td>
-                    <td class="auto-style11" colspan="4">
-                        <input id="inpFileAnh" class="auto-style23" type="file" /></td>
-                </tr>
-                <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
-                    <td class="auto-style11">
-                        <asp:Label ID="Label10" runat="server" Text="Loại nhiên liệu"></asp:Label>
+                        <asp:Label ID="Label11" runat="server" Text="Số ghế"></asp:Label>
                     </td>
-                    <td class="auto-style11" colspan="4">
-                        <asp:DropDownList ID="ddlNhienLieu" runat="server">
-                            <asp:ListItem>Xe xăng</asp:ListItem>
-                            <asp:ListItem>Xe điện</asp:ListItem>
-                            <asp:ListItem>Xe dầu</asp:ListItem>
-                        </asp:DropDownList>
+                    <td class="auto-style11" colspan="2">
+                        <asp:TextBox ID="txtSoGhe" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
                     <td class="auto-style11">
-                        <asp:Label ID="Label11" runat="server" Text="Năm sản xuất"></asp:Label>
+                        <asp:Label ID="Label12" runat="server" Text="Mức tiêu thụ nhiên liệu"></asp:Label>
                     </td>
-                    <td class="auto-style11" colspan="4">
+                    <td class="auto-style11" colspan="2">
+                        <asp:TextBox ID="txtMucTieuThu" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style11">
+                        <asp:Label ID="Label10" runat="server" Text="Năm sản xuất"></asp:Label>
+                    </td>
+                    <td class="auto-style11" colspan="2">
                         <asp:TextBox ID="txtNamSX" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
                     <td class="auto-style11">
-                        <asp:Label ID="Label12" runat="server" Text="Số ghế"></asp:Label>
+                        <asp:Label ID="Label13" runat="server" Text="Loại nhiên liệu"></asp:Label>
                     </td>
-                    <td class="auto-style11" colspan="4">
-                        <asp:DropDownList ID="ddlSoGhe" runat="server">
-                            <asp:ListItem>2</asp:ListItem>
-                            <asp:ListItem>4</asp:ListItem>
-                            <asp:ListItem>5</asp:ListItem>
-                            <asp:ListItem>6</asp:ListItem>
-                            <asp:ListItem>7</asp:ListItem>
-                        </asp:DropDownList>
+                    <td class="auto-style11" colspan="2">
+                        <asp:TextBox ID="txtLoaiNhienLieu" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
-                    <td class="auto-style11">
-                        <asp:Label ID="Label13" runat="server" Text="Nhiên liệu tiêu thụ"></asp:Label>
-                    </td>
-                    <td class="auto-style11" colspan="4">
-                        <asp:TextBox ID="txtNhienLieuTieuThu" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
                     <td class="auto-style11">
                         &nbsp;</td>
-                    <td class="auto-style11" colspan="4">
+                    <td class="auto-style11" colspan="2">
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
                     <td class="auto-style11">
-                        &nbsp;</td>
-                    <td class="auto-style11" colspan="4">
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
-                    <td class="auto-style22">
-                        &nbsp;</td>
-                    <td class="auto-style22" colspan="4">
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
-                    <td class="auto-style22">
-                        &nbsp;</td>
-                    <td class="auto-style22" colspan="4">
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style19">
-                        &nbsp;</td>
-                    <td class="auto-style25">
-                        &nbsp;</td>
-                    <td class="auto-style25">
                         <asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm Mới" Width="100px" />
                         </td>
-                    <td class="auto-style25">
-                        &nbsp;</td>
-                    <td class="auto-style26">
+                    <td class="auto-style11">
                         <asp:Button ID="btnSua" runat="server" Text="Chỉnh Sửa" OnClick="btnSua_Click" Width="100px" />
                         </td>
-                    <td class="auto-style27">
+                    <td class="auto-style11">
                         <asp:Button ID="btnXoa" runat="server" Text="Xóa" OnClick="btnXoa_Click" CssClass="auto-style28" Width="100px" />
                     </td>
                 </tr>
-            </table>
+                <tr>
+                    <td class="auto-style22">
+                        &nbsp;</td>
+                    <td class="auto-style22" colspan="2">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style22">
+                        &nbsp;</td>
+                    <td class="auto-style22" colspan="2">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                </tr>
+                </table>
         </div>
     </form>
 </body>

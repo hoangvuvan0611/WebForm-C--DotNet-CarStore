@@ -150,24 +150,6 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.TextBox txtGia;
 
         /// <summary>
-        /// Label10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
-
-        /// <summary>
-        /// ddlNhienLieu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNhienLieu;
-
-        /// <summary>
         /// Label11 control.
         /// </summary>
         /// <remarks>
@@ -177,13 +159,13 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.Label Label11;
 
         /// <summary>
-        /// txtNamSX control.
+        /// txtSoGhe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNamSX;
+        protected global::System.Web.UI.WebControls.TextBox txtSoGhe;
 
         /// <summary>
         /// Label12 control.
@@ -195,13 +177,31 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.Label Label12;
 
         /// <summary>
-        /// ddlSoGhe control.
+        /// txtMucTieuThu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSoGhe;
+        protected global::System.Web.UI.WebControls.TextBox txtMucTieuThu;
+
+        /// <summary>
+        /// Label10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label10;
+
+        /// <summary>
+        /// txtNamSX control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNamSX;
 
         /// <summary>
         /// Label13 control.
@@ -213,13 +213,13 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.Label Label13;
 
         /// <summary>
-        /// txtNhienLieuTieuThu control.
+        /// txtLoaiNhienLieu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNhienLieuTieuThu;
+        protected global::System.Web.UI.WebControls.TextBox txtLoaiNhienLieu;
 
         /// <summary>
         /// btnThem control.
